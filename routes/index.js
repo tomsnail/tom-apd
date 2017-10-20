@@ -6,7 +6,7 @@ var contentDb=database.ConnetcDb("content");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('../views/index.html', { title: 'Express' });
+    res.redirect('/main/1.html');
 
 });
 router.get('/main', function(req, res, next) {
@@ -22,8 +22,6 @@ router.get('/main/*', function(req, res, next) {
         .find({ id: parseInt(tmpId) })
         .get("name")
        .value()
-    console.log(str)
-    //取数据库id
     res.render('../views/mainIndex.html',{ title: str });
 });
 router.get('/editor', function(req, res, next) {

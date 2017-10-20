@@ -396,7 +396,14 @@
             deleteRow(index, rows)
             {
                 var self = this;
-                var pageId = rows[index].id
+                var pageId = rows[index].id;
+                if(pageId==1){
+                    self.$notify.error({
+                        title: '错误',
+                        message: '对不起,首页不能移除!'
+                    });
+                    return;
+                }
                 var par = {"pid": pageId};
                 this.$http.post("/delPage.do", par).then(function (res) {
                     if (res.data == 'success') {
