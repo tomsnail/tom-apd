@@ -61,3 +61,7 @@ typings/
 
 data/
 
+# public's dist data
+
+public/
+

@@ -467,8 +467,7 @@
                     });
                 } else {
                     var test = window.location.href;
-                    console.log("url:" + test)
-                    var url = test.split("main")[0];
+                    var url = "/";
                     self.pagetemplate.id = timestap;
                     self.pagetemplate.name = self.form1.name;
                     self.pagetemplate.url = url + 'main/' + timestap + '.html';
