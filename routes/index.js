@@ -16,7 +16,6 @@ router.get('/main', function(req, res, next) {
 router.get('/main/*', function(req, res, next) {
     var tmplHtml = req.originalUrl+'';
     tmplHtml = tmplHtml.split("main/")[1];
-    console.log(tmplHtml);
     tmpId = tmplHtml.split(".")[0]
     var str=pageDd.get('name')
         .find({ id: parseInt(tmpId) })
@@ -31,13 +30,11 @@ router.get('/editor', function(req, res, next) {
 router.get('/editor/*', function(req, res, next) {
     var tmplHtml = req.originalUrl+'';
     tmplHtml = tmplHtml.split("editor/")[1];
-    console.log(tmplHtml);
     tmpId = tmplHtml.split(".")[0]
     var str=contentDb.get('content')
         .find({ id: parseInt(tmpId) })
         .get("title")
         .value()
-    //console.log(str)
     res.render('../views/editor.html',{ title: str});
 });
 
@@ -50,7 +47,6 @@ router.post('/getAllData.do',function (req,res,next) {
 //查询指定id的聚合页
 router.post('/getData.do',function (req,res,next) {
     var pageId = req.body.pid;
-  console.log("lalalala:"+req.body.pid);
   var str=pageDd.get('name')
       .find({ id: pageId })
       .value()
@@ -59,7 +55,6 @@ router.post('/getData.do',function (req,res,next) {
 //添加聚合页
 router.post('/addPage.do',function (req,res,next) {
     var str=req.body;
-// Add a post
     pageDd.get('name')
         .push(str)
         .write()
@@ -70,7 +65,6 @@ router.post('/addPage.do',function (req,res,next) {
 router.post('/addData.do',function (req,res,next) {
   var str=req.body.group;
     var pageId = req.body.pid;
-// Add a post
     pageDd.get('name')
       .find({ id: pageId })
       .get('contents')

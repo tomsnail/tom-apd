@@ -6,6 +6,7 @@
     "start": "node ./bin/www",
     "build": " webpack -p --progress --hide-modules"
   },
+  "license":"Apache-2.0",
   "dependencies": {
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
